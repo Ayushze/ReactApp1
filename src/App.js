@@ -7,7 +7,7 @@ import Alert from "./components/Alert";
 import Contact from "./components/Contact";
 import { useState } from "react";
 import React from "react";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-      {/* <Router>
+      <Router>
         <div>
           <Navbar
             toggleMode={toggleMode}
@@ -51,23 +51,26 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Switch>
-            <Route exact path="/">    put "exact" beacause react do partial rendering 
+            <Route exact path="/about">
+              {/* put "exact" beacause react do partial rendering and we don't want that */}
+              <About />
+            </Route>
+            <Route exact path="/contact">
+              {/* put "exact" beacause react do partial rendering and we don't want that */}
+              <Contact />
+            </Route>
+            <Route exact path="/">
+              {/* put "exact" beacause react do partial rendering and we don't want that */}
               <TextForm
                 showAlert={showAlert}
                 heading="Enter the text to analize below"
                 mode={mode}
               />
             </Route>
-            <Route exact path="/about">   put "exact" beacause react do partial rendering 
-              <About />
-            </Route>
-            <Route exact path="/contact">   put "exact" beacause react do partial rendering 
-              <Contact />
-            </Route>
           </Switch>
         </div>
-      </Router> */}
-      <div>
+      </Router>
+      {/* <div>
           <Navbar
             toggleMode={toggleMode}
             title="Text Mod"
@@ -77,13 +80,13 @@ function App() {
             mode={mode}
           />
         </div>
-        {/* <Alert alert={alert} /> */}
+        <Alert alert={alert} />
       <TextForm
         showAlert={showAlert}
         heading="Enter the text to analize below"
         mode={mode}
       />
-      {/* <About /> */}
+      <About /> */}
     </>
   );
 }
